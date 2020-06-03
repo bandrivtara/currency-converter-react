@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import TransactionsCreator from './TransactionsCreator';
 
 const TransactionsCreatorContainer = ({ addTransaction }) => {
-    const [name, setName] = useState(0);
-    const [euroAmount, setEuroAmount] = useState(0);
+    const [name, setName] = useState('');
+    const [euroAmount, setEuroAmount] = useState('');
 
     const changeEuroAmount = (event) => {
         setEuroAmount(event.target.value)
@@ -15,6 +15,8 @@ const TransactionsCreatorContainer = ({ addTransaction }) => {
     const createTransaction = (event) => {
         event.preventDefault();
         addTransaction(name, Number(euroAmount))
+        setName('');
+        setEuroAmount('');
     }
 
     return (

@@ -2,23 +2,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 import TransactionsCreatorContainer from './TransactionsCreator/TransactionsCreatorContainer';
 import TransactionsListContainer from './TransactionsList/TransactionsListContainer';
-import TransactionsSum from './TransactionsAmount/TransactionsSum';
-import TransactionLargest from './TransactionLargest/TransactionLargest';
+import TransactionsSumContainer from './TransactionsAmount/TransactionsSumContainer';
+import TransactionLargestContainer from './TransactionLargest/TransactionLargestContainer';
 import { addTransaction, deleteTransaction } from '../../../actions';
 
 const Transactions = ({ transactionsList, actualCurrencyAmount, addTransaction, deleteTransaction }) => {
     return (
-        <div>
+        <div className="transactions">
             <TransactionsCreatorContainer
                 addTransaction={addTransaction} />
             <TransactionsListContainer
                 transactionsList={transactionsList}
                 actualCurrencyAmount={actualCurrencyAmount}
                 deleteTransaction={deleteTransaction} />
-            <TransactionsSum
+            <TransactionsSumContainer
                 transactionsList={transactionsList}
                 actualCurrencyAmount={actualCurrencyAmount} />
-            <TransactionLargest
+            <TransactionLargestContainer
                 transactionsList={transactionsList} 
                 actualCurrencyAmount={actualCurrencyAmount} />
         </div>
@@ -27,7 +27,7 @@ const Transactions = ({ transactionsList, actualCurrencyAmount, addTransaction, 
 
 const mapStateToProps = (state) => {
     return {
-        actualCurrencyAmount: state.actualCurrency.actualCurrencyAmount,
+        actualCurrencyAmount: state.currency.actualCurrencyAmount,
         transactionsList: state.transactions.transactionsList,
     }
 }

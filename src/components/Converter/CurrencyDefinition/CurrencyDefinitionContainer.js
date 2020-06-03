@@ -23,7 +23,7 @@ const CurrencyDefinitionContainer = ({ actualCurrencyAmount, setCurrencyAmount }
 
 const mapStateToProps = (state) => {
     return {
-        actualCurrencyAmount: state.actualCurrency.actualCurrencyAmount
+        actualCurrencyAmount: state.currency.actualCurrencyAmount
     }
 }
 

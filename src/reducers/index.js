@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import transactions from './transactions';
-import actualCurrency from './actualCurrency';
+import currency from './currency';
 
 export default combineReducers({
-    actualCurrency,
+    currency,
     transactions,
 })

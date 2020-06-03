@@ -1,23 +1,13 @@
 import React from 'react'
 
-const TransactionsSum = ({ transactionsList, actualCurrencyAmount }) => {
-
-
-    let transactionsEuroAmount = transactionsList.map(elem => elem.euro);
-    let sumEuro = transactionsEuroAmount.reduce(function (sum, current) {
-        return sum + current;
-    }, 0);
-    
-    let sumPln = sumEuro * actualCurrencyAmount;
-    let roundAmount = sumPln.toFixed(2);
-    sumPln = Math.round(roundAmount * 100) / 100;
-
+const TransactionsSum = ({ sumTransactions, sumPln, sumEuro }) => {
 
     return (
-        <div>
-            Transactions: {transactionsEuroAmount.length}
-            Sum Euro: {sumEuro}
-            Sum Pln: {sumPln}
+        <div className="transactionSum">
+            <p>Suma wszystkich transakcji</p>
+            <div>Ilość: {sumTransactions}</div>
+            <div>EURO: {sumEuro}</div>
+            <div>PLN: {sumPln}</div>
         </div>
     )
 }

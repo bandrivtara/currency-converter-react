@@ -6,7 +6,7 @@ import Converter from './Converter/Converter';
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
       <Title />
       <Converter />
     </div>

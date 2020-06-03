@@ -7,6 +7,9 @@ const TransactionsListContainer = ({ transactionsList, actualCurrencyAmount, del
         deleteTransaction(transactionId);
     }
 
+    
+
+
     return (
         <TransactionsList
             transactionsList={transactionsList}
