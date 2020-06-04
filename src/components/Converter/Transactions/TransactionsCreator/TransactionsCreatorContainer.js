@@ -4,9 +4,10 @@ import TransactionsCreator from './TransactionsCreator';
 const TransactionsCreatorContainer = ({ addTransaction }) => {
     const [name, setName] = useState('');
     const [euroAmount, setEuroAmount] = useState('');
+    const [validator, setValidator] = useState(false)
 
     const changeEuroAmount = (event) => {
-        setEuroAmount(event.target.value)
+        setEuroAmount(event.target.value);
     }
     const changeName = (event) => {
         setName(event.target.value)
@@ -14,9 +15,14 @@ const TransactionsCreatorContainer = ({ addTransaction }) => {
 
     const createTransaction = (event) => {
         event.preventDefault();
-        addTransaction(name, Number(euroAmount))
-        setName('');
-        setEuroAmount('');
+        if (name && euroAmount) {
+            addTransaction(name, Number(euroAmount))
+            setName('');
+            setEuroAmount('');
+            setValidator(false)
+        } else {
+            setValidator(true)
+        }
     }
 
     return (
@@ -25,7 +31,8 @@ const TransactionsCreatorContainer = ({ addTransaction }) => {
             euroAmount={euroAmount}
             changeName={changeName}
             changeEuroAmount={changeEuroAmount}
-            createTransaction={createTransaction} />
+            createTransaction={createTransaction}
+            validator={validator} />
     )
 }
 

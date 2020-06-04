@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { convertToPln } from '../../../../lib/helpers';
 
 const TransactionsList = ({ transactionsList, actualCurrencyAmount, removeTransaction }) => {
     return (
@@ -8,10 +9,7 @@ const TransactionsList = ({ transactionsList, actualCurrencyAmount, removeTransa
             </div>
             <ul>
                 {transactionsList.map(elem => {
-                    let plnAmount = elem.euro * actualCurrencyAmount;
-                    let roundAmount = plnAmount.toFixed(2);
-                    plnAmount = Math.round(roundAmount * 100) / 100;
-
+                    let plnAmount = convertToPln(actualCurrencyAmount, elem.euro)
                     return (
                         <li key={elem.id}>
                             <span>{elem.name} </span><span>{elem.euro}</span> = <span>{plnAmount}</span>

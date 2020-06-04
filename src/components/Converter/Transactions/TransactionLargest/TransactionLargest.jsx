@@ -1,15 +1,11 @@
 import React from 'react'
 
-const TransactionLargest = ({ name, euro, plnAmount }) => {
+const TransactionLargest = ({ currentLargestTransaction }) => {
 
     return (
         <div className="transactionLargest">
             <h3>Transakcja o największej kwocie</h3>
-            <div>
-                <p>{name}</p>
-                <p>{euro} EURO</p>
-                <p>{plnAmount} PLN</p>
-            </div>
+            <ul>{currentLargestTransaction}</ul>
         </div>
     )
 }
